@@ -31,12 +31,8 @@ public class LabString
 			}
 			if(temp == n)
 			{
-				System.out.println("Sorry string is valid");
+			System.out.println("Sorry string is  valid");
 			}
-		}
-		else
-		{
-			System.out.println("Sorry string is not valid");
 		}
 			
 	}
