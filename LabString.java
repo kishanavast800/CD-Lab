@@ -3,8 +3,18 @@ package World;
 import java.util.*;
 public class LabString
 {
+	int a;
+	public void fun()
+	{
+		a=5;
+	}
+	public void get()
+	{System.out.println(a);}
 	public static void main(String[] args)
 	{
+		LabString obj = new LabString();
+		obj.fun();
+		obj.get();
 		Scanner buf = new Scanner(System.in);
 		String s1 = buf.nextLine();
 		int n=s1.length();
@@ -31,12 +41,12 @@ public class LabString
 			}
 			if(temp == n)
 			{
-			System.out.println("string is  valid");
+			System.out.println("string is valid");
 			}
 		}
-		else{
+		else
+		{
 			System.out.println("Sorry string is not valid");
 		}
-			
 	}
 }
