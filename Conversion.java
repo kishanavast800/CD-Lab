@@ -1,17 +1,15 @@
-package World;
-import java.util.*; 
-class Conversion
+package World;//its a package which is create by me for storing the .class file and use code directly in program
+import java.util.*; //its a predefined package which is used for import Scanner class and Stack
+class ConversionPostfix //Creation of class
 { 
-	public static String InfixToPostfix(String exp) 
+	public static String InfixToPostfix(String exp)//its a static member function 
     { 
-        
-        String result = new String(""); 
-        Stack<Character> stack = new Stack<>(); 
-          
-        for (int i = 0; i<exp.length(); ++i) 
+        String result = new String(""); //create or initialize the empty string
+        Stack<Character> stack = new Stack<>(); // using collection framework
+        for (int i = 0; i<exp.length(); ++i) //using logic for conversion of infix expression to postfix expression
         { 
             char c = exp.charAt(i); 
-            if (Character.isLetterOrDigit(c)) 
+            if (Character.isLetterOrDigit(c)) //in this line we have to check input char iis letter or digit or not menas other
 			{
 				result += c; 
 				System.out.println(result);
@@ -24,6 +22,7 @@ class Conversion
              
             else if (c == ')') 
             { 
+				System.out.println("resultkigz");
                 while (!stack.isEmpty() && stack.peek() != '(') 
                     result += stack.pop(); 
                   
@@ -34,15 +33,18 @@ class Conversion
             } 
             else 
             { 
-                while (!stack.isEmpty() && Prec(c) <= Prec(stack.peek())){ 
+				
+                while (!stack.isEmpty() && Prec(c) <= Prec(stack.peek()))
+				{ 
+				System.out.println("result xrgf"+Prec(c));
                     if(stack.peek() == '(') 
                         return "Invalid Expression"; 
                     result += stack.pop(); 
-             } 
+				} 
                 stack.push(c); 
-            } 
+			} 
        
-        } 
+        } //end of for loop
        
         
         while (!stack.isEmpty()){ 
@@ -51,8 +53,8 @@ class Conversion
             result += stack.pop(); 
          } 
         return result; 
-    } 
-    public static int Prec(char ch) 
+    } //end of function
+    public static int Prec(char ch)//static member function 
     { 
         switch (ch) 
         { 
@@ -67,14 +69,12 @@ class Conversion
         case '^': 
             return 3; 
         } 
-        return -1; 
-    } 
-       
-    
-    public static void main(String[] args)  
+        return 0; 
+    } //end of function    
+    public static void main(String[] args)//its a main function  
     { 
-		Scanner buf = new Scanner(System.in);
+		Scanner buf = new Scanner(System.in);//its a predefined class which is used for taking input from user
         String exp = buf.nextLine(); 
-        System.out.println(InfixToPostfix(exp)); 
+        System.out.println(InfixToPostfix(exp)); //function calling and printing
     } 
-} 
+} //end of main function
